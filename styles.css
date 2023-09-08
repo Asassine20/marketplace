@@ -1,0 +1,481 @@
+.main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-content: start;
+  grid-gap: 20px;
+  max-width: 97%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.card {
+  display: flex;
+  border: 1px solid #ccc;
+  padding: 20px;
+  height: 300px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-container {
+  flex: 1;
+  height: 100%;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card-content {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 20px;
+  font-size: 20px;
+}
+
+.player-name {
+  font-weight: bold;
+  color: black !important;
+  font-size: 26px;
+}
+
+.market_price {
+  font-weight: bold;
+  color: black !important;
+  font-size: 18px;
+}
+
+.card p:not(.player-name),
+.card-detail {
+  color: gray;
+  margin-bottom: 8px;  /* adjust as needed */
+}
+
+
+
+/* Style the pagination links */
+.pagination {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.pagination li {
+  margin: 5px;
+}
+
+.pagination li a {
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 8px;
+  color: black;
+}
+
+/* Style the current page link */
+.pagination li a.current-page {
+  background-color: blue;
+  color: white;
+}
+
+/* Center the form and adjust the search bar size */
+form {
+  display: flex;
+  flex-direction: row; /* Change to row */
+  align-items: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+input[type="text"] {
+  flex: 1px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-right: 5px;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Use flexbox to align items */
+.search-form {
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 5px;
+  width: 80%;
+  max-width: 1000px;
+}
+
+/* Remove the default button styles */
+.search-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search-icon:hover {
+  box-shadow: 0 2px 4px rgb(0, 80, 162);
+
+}
+
+/* Adjust the size of the search icon */
+.search-icon i {
+  font-size: 18px;
+}
+
+/* Style the loading spinner */
+.loading-spinner {
+  border: 4px solid rgba(0, 80, 162, 0.5);
+  border-left: 4px solid #0050A2;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+/* Animation for loading spinner */
+@keyframes spin {
+  0% {transform: rotate(0deg); }
+  100% {transform: rotate(360deg); }
+}
+
+/* Remove underline from links */
+a {
+  text-decoration: none;
+}
+
+/* Use media queries to adjust card size based on screen width */
+@media screen and (min-width: 1201px) and (max-width: 1699px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+@media screen and (min-width: 631px) and (max-width: 1200px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 2181px) {
+  .card-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media screen and (min-width: 1700px) and (max-width: 2180px) {
+  .card-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 630px){
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+.toggle-button {
+  display: none;  /* Initially hidden */
+  background-color: #f2f2f2;
+  color: rgb(0, 0, 0);
+  padding: 10px 16px;
+  cursor: pointer;
+  position: fixed;  /* Fixed at a position */
+  left: 0;  
+  top: 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 899px) {
+  .toggle-button {
+    display: block;  /* Visible */
+  }
+}
+
+
+/* CSS styles for sidebar and content */
+body {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+.sidebar {
+  width: 200px;
+  display: block;
+  margin-top: 20px;
+  margin-right: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+
+
+.inline-sport-dropdown-container {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.inline-filter {
+  min-height: 50px;  /* This line sets a minimum height for the inline filter */
+  display: flex;
+  justify-content: space-around;
+  background-color: #0050A2;
+  color: white;
+  padding: 10px 0;
+  width: 100%; 
+  margin: 0;
+  margin-top: 20px;
+}
+
+.inline-filter, #search-results {
+  width: 100%;
+}
+
+.inline-sport-dropdown {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.inline-sport-dropdown:focus {
+  pointer-events: auto;
+}
+
+
+.inline-filter label {
+  margin: 0 15px;
+}
+
+.sport-button {
+  background-color: #0050A2;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.sport-button:hover + .submenu,
+.submenu:hover {
+    display: block;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  width: 200px;
+  transform: translateX(-50%);
+  z-index: 1;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.submenu .top-sets {
+  padding: 10px;
+  border-right: 1px solid #555;
+}
+
+.submenu .shop-all {
+  padding: 10px;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.inline-sport-dropdown-container:hover .submenu {
+  display: block;
+}
+
+#set-name-filter, #year-filter, #variant-filter, #color-variant-filter, #number-filter{
+  max-height: 290px;
+  overflow-y: auto;
+  padding-right: 20px;
+}
+
+#sport-filter {
+  padding-right: 50px;
+}
+
+#setSearch, #yearSearch, #variantSearch, #color-variantSearch, #numberSearch{
+  margin-bottom: 20px;
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 4px;
+}
+
+.filter-name, .filter-sport-name, .filter-year {
+  flex-grow: 1;
+  min-width: 100px;
+  max-width: calc(100% - 60px);
+}
+
+.count {
+  flex-shrink: 0;
+  min-width: 50px;
+  width: 50px;
+  text-align: right;
+  color: grey;
+}
+
+.filter-checkbox {
+  outline-width: 2px;
+  margin-right: 8px;
+}
+
+.filter-divider {
+  width: 100%;
+  border-top: 1px solid #999;
+}
+
+.filter-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.content {
+  flex-grow: 1;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start;  
+}
+
+.set-item {
+  display: flex;
+  align-items: center;
+}
+
+.selected-filter {
+  background-color: #f2f2f2;
+  border-radius: 12px;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;  /* Keep content on a single line */
+  overflow: hidden;  /* Hide any overflow content */
+  text-overflow: ellipsis;  /* Add an ellipsis when the content overflows */
+  max-width: calc(100% - 10px);  /* Set a maximum width */
+}
+
+.remove-filter {
+  cursor: pointer;
+}
+
+.resultsAndSort {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.resultsText {
+  font-size: 16px;
+}
+
+.custom-select-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-right: 40px; /* increase the right margin to add more padding to the right side */
+}
+
+.custom-select select {
+  width: 100%;
+  cursor: pointer;
+  padding: 8px 12px; /* increased padding to make it larger */
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+
+.custom-select {
+  display: flex; /* sets the element as a flex container */
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically */
+  
+  position: relative;
+  width: 200px;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,.3);
+}
+
+.custom-select:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+
+#sortMenu {
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
